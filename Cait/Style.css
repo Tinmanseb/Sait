@@ -1,0 +1,392 @@
+/* Основные стили остаются без изменений до медиа-запросов */
+
+/* Улучшенные медиа-запросы для адаптации */
+
+/* Для планшетов в альбомной ориентации (1024px - 1200px) */
+@media (min-width: 1024px) and (max-width: 1200px) and (orientation: landscape) {
+    .container {
+        gap: 30px;
+    }
+    
+    .piece {
+        width: 180px;
+        height: 630px;
+    }
+    
+    .piece.center-piece {
+        width: 190px;
+        height: 650px;
+    }
+    
+    .container:hover .piece:not(.center-piece) {
+        width: 180px;
+        height: 630px;
+    }
+    
+    .container:hover .piece.center-piece {
+        width: 190px;
+        height: 630px;
+    }
+    
+    .logo {
+        max-width: 170px;
+        max-height: 170px;
+    }
+}
+
+/* Для планшетов в портретной ориентации (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    body {
+        height: auto;
+        min-height: 100vh;
+        padding: 20px 0;
+        overflow-y: auto;
+    }
+    
+    .container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        padding: 20px;
+        max-width: 100%;
+    }
+    
+    .piece {
+        width: calc(33.333% - 20px);
+        height: 400px;
+        min-width: 200px;
+        margin: 10px;
+        border-radius: 10px;
+    }
+    
+    .piece.center-piece {
+        width: calc(33.333% - 20px);
+        height: 420px;
+        order: 3; /* Центральная часть в середине */
+    }
+    
+    /* Переставляем порядок для лучшего отображения */
+    .piece:nth-child(1) { order: 1; }
+    .piece:nth-child(2) { order: 2; }
+    .piece:nth-child(4) { order: 4; }
+    .piece:nth-child(5) { order: 5; }
+    
+    .container:hover {
+        gap: 15px !important;
+    }
+    
+    .container .piece::before {
+        height: 8px;
+        opacity: 1;
+    }
+    
+    .container .piece::after {
+        opacity: 1;
+        font-size: 16px;
+        padding: 20px 10px 15px;
+    }
+    
+    .container:hover .piece {
+        border-radius: 10px;
+        border: none;
+        box-shadow: none;
+        margin-left: 10px !important;
+        margin-right: 10px !important;
+    }
+    
+    .logo-container {
+        position: relative;
+        margin: 0 auto 30px;
+        text-align: center;
+    }
+    
+    .logo {
+        max-width: 150px;
+        max-height: 150px;
+    }
+}
+
+/* Для средних телефонов (576px - 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+    body {
+        padding: 15px 0;
+    }
+    
+    .container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .piece {
+        width: 90%;
+        height: 180px;
+        max-width: 450px;
+        border-radius: 10px;
+        margin: 0 auto;
+    }
+    
+    .piece.center-piece {
+        width: 92%;
+        height: 190px;
+        max-width: 460px;
+    }
+    
+    .container:hover {
+        gap: 15px !important;
+    }
+    
+    .container .piece::before {
+        height: 6px;
+        opacity: 1;
+    }
+    
+    .container .piece::after {
+        opacity: 1;
+        font-size: 16px;
+        padding: 18px 10px 12px;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.98) 40%, rgba(0, 0, 0, 0.8) 70%, transparent 100%);
+    }
+    
+    .container:hover .piece {
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        margin-left: 0 !important;
+    }
+    
+    .logo-container {
+        margin-bottom: 25px;
+    }
+    
+    .logo {
+        max-width: 130px;
+        max-height: 130px;
+    }
+}
+
+/* Для маленьких телефонов (до 575px) */
+@media (max-width: 575px) {
+    body {
+        padding: 10px 0;
+    }
+    
+    .container {
+        flex-direction: column;
+        gap: 12px;
+        padding: 10px;
+    }
+    
+    .piece {
+        width: 95%;
+        height: 150px;
+        max-width: 400px;
+        border-radius: 8px;
+        margin: 0 auto;
+    }
+    
+    .piece.center-piece {
+        width: 96%;
+        height: 160px;
+        max-width: 410px;
+    }
+    
+    .container:hover {
+        gap: 12px !important;
+    }
+    
+    .container .piece::before {
+        height: 5px;
+        opacity: 1;
+    }
+    
+    .container .piece::after {
+        opacity: 1;
+        font-size: 14px;
+        padding: 15px 8px 10px;
+        background: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0.85) 80%, transparent 100%);
+        min-height: 45px;
+    }
+    
+    .container:hover .piece {
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        margin-left: 0 !important;
+    }
+    
+    .logo-container {
+        margin-bottom: 20px;
+    }
+    
+    .logo {
+        max-width: 100px;
+        max-height: 100px;
+    }
+}
+
+/* Для очень маленьких телефонов (до 360px) */
+@media (max-width: 360px) {
+    .piece {
+        height: 130px;
+    }
+    
+    .piece.center-piece {
+        height: 140px;
+    }
+    
+    .piece::after {
+        font-size: 13px;
+        padding: 12px 6px 8px;
+        min-height: 40px;
+    }
+    
+    .container {
+        gap: 10px;
+        padding: 8px;
+    }
+    
+    .logo {
+        max-width: 80px;
+        max-height: 80px;
+    }
+}
+
+/* Для устройств с тач-экраном */
+@media (hover: none) and (pointer: coarse) {
+    /* Отключаем hover-эффекты для тач-устройств */
+    .container:hover .piece {
+        transform: none;
+        border: none;
+        box-shadow: none;
+    }
+    
+    .container .piece::before,
+    .container .piece::after {
+        opacity: 1 !important;
+    }
+    
+    /* Добавляем активное состояние при тапе */
+    .piece:active {
+        transform: scale(0.98);
+        opacity: 0.9;
+        transition: transform 0.1s ease;
+    }
+}
+
+/* Для устройств с возможностью наведения (ПК, ноутбуки) */
+@media (hover: hover) and (pointer: fine) {
+    /* Включаем все hover-эффекты */
+    .container:hover .piece::before,
+    .container:hover .piece::after {
+        opacity: 1;
+    }
+    
+    .piece:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        z-index: 2;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+}
+
+/* Для высоких экранов (более 1200px в высоту) */
+@media (min-height: 900px) {
+    .piece {
+        height: 750px;
+    }
+    
+    .piece.center-piece {
+        height: 780px;
+    }
+    
+    .container:hover .piece:not(.center-piece) {
+        height: 750px;
+    }
+    
+    .container:hover .piece.center-piece {
+        height: 750px;
+    }
+}
+
+/* Для очень широких экранов (более 1920px) */
+@media (min-width: 1921px) {
+    .container {
+        gap: 60px;
+    }
+    
+    .piece {
+        width: 250px;
+        height: 850px;
+    }
+    
+    .piece.center-piece {
+        width: 270px;
+        height: 880px;
+    }
+    
+    .container:hover .piece:not(.center-piece) {
+        width: 250px;
+        height: 850px;
+    }
+    
+    .container:hover .piece.center-piece {
+        width: 270px;
+        height: 850px;
+    }
+    
+    .logo {
+        max-width: 250px;
+        max-height: 250px;
+    }
+}
+
+/* Портретная ориентация для мобильных */
+@media (orientation: portrait) and (max-width: 767px) {
+    .piece::after {
+        font-size: clamp(14px, 4vw, 18px);
+    }
+    
+    .logo {
+        max-width: clamp(80px, 25vw, 150px);
+    }
+}
+
+/* Ландшафтная ориентация для мобильных */
+@media (orientation: landscape) and (max-height: 600px) {
+    body {
+        height: auto;
+        min-height: 100vh;
+        padding: 10px 0;
+    }
+    
+    .container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .piece {
+        width: calc(50% - 20px);
+        height: 250px;
+    }
+    
+    .piece.center-piece {
+        width: calc(50% - 20px);
+        height: 260px;
+    }
+    
+    .logo-container {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0;
+    }
+    
+    .logo {
+        max-width: 80px;
+        max-height: 80px;
+    }
+}
